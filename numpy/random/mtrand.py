@@ -311,7 +311,7 @@ prefix = 'lib'
 if sys.platform == 'win32':
     suffix = '.dll'
     prefix = ''
-shared_name = os.path.abspath(os.path.dirname(__file__)) + '/' + prefix + '_mtrand' + suffix
+shared_name = os.path.abspath(os.path.dirname(__file__)) + '/' + prefix + '_mtrand' + suffix + '/' + prefix + '_mtrand' + suffix # JAM os x
 if not os.path.exists(shared_name):
     # cffi should support some canonical name formatting like
     # distutils.ccompiler.library_filename()
@@ -4292,5 +4292,3 @@ _rand = RandomState()
 for attr in dir(_rand):
     if not attr.startswith('_'):
         globals()[attr] = getattr(_rand, attr)
-
-
